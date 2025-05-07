@@ -1,0 +1,26 @@
+---
+// src/components/Footer.astro
+// Componente para el pie de página.
+---
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; {new Date().getFullYear()} Nombre de tu Empresa. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  /* Estilos para el footer */
+  .footer {
+    background-color: var(--color-typography-dark); /* Color de fondo oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+    padding: 30px 0; /* Espaciado interno superior e inferior */
+    margin-top: 60px; /* Espacio encima del footer */
+  }
+
+  .footer p {
+    margin: 0; /* Elimina el margen por defecto */
+    font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+  }
+</style>

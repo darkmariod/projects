@@ -1,0 +1,72 @@
+---
+// src/pages/index.astro
+// Esta es la página principal que actúa como una Single Page Application (SPA).
+// Incluye todas las secciones y usa JavaScript para mostrar/ocultar contenido.
+
+// Importa el layout base que define la estructura HTML principal y carga global.css
+import Layout from '../layouts/Layout.astro';
+// Importa los componentes del header y footer
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Importa los componentes de cada sección de contenido
+// Asegúrate de que estos archivos existan en src/components
+import Inicio from '../components/Inicio.astro';
+import Servicios from '../components/Servicios.astro';
+import Empresa from '../components/Empresa.astro';
+import Contacto from '../components/Contacto.astro';
+
+// Importa el script de navegación para manejar la lógica de mostrar/ocultar secciones
+// La directiva 'is:inline' asegura que el script se incluya directamente en el HTML generado
+// Esto es necesario para que el script se ejecute en el cliente y maneje los clics.
+// ¡VERIFICA QUE LA RUTA A navigation.js SEA CORRECTA!
+// Si creaste la carpeta 'scripts' dentro de 'src', esta ruta '../scripts/navigation.js' es la correcta.
+import '../scripts/navigation.js';
+---
+
+{/* Utiliza el layout base para la estructura de la página */}
+<Layout title="Rapid Automation - Inicio">
+  {/* Incluye el componente del header */}
+  <Header />
+
+  <main>
+    {/* Contenedor principal para todas las secciones de contenido */}
+    {/* Este contenedor tiene el ID 'sections-container' y es referenciado por el script navigation.js */}
+    <div id="sections-container">
+      {/* Sección de Inicio: visible por defecto */}
+      {/* Cada sección tiene un ID único que coincide con el 'data-section' en los enlaces del header */}
+      {/* La clase 'section' es para estilos generales de sección (padding, etc.) */}
+      <section id="inicio-section" class="section">
+        <Inicio /> {/* Muestra el contenido del componente Inicio */}
+      </section>
+
+      {/* Sección de Servicios: inicialmente oculta */}
+      {/* La clase 'hidden' (definida en global.css) oculta esta sección */}
+      <section id="servicios-section" class="section hidden">
+        <Servicios /> {/* Muestra el contenido del componente Servicios */}
+      </section>
+
+      {/* Sección de Empresa: inicialmente oculta */}
+      <section id="empresa-section" class="section hidden">
+        <Empresa /> {/* Muestra el contenido del componente Empresa */}
+      </section>
+
+      {/* Sección de Contacto: inicialmente oculta */}
+      <section id="contacto-section" class="section hidden">
+        <Contacto /> {/* Muestra el contenido del componente Contacto */}
+      </section>
+    </div>
+  </main>
+
+  {/* Incluye el componente del footer */}
+  <Footer />
+
+  {/* No necesitas una etiqueta <script> separada para navigation.js aquí si ya lo importaste arriba con 'is:inline' */}
+
+</Layout>
+
+{/* Estilos específicos para esta página si los hubiera */}
+<style>
+  /* Puedes añadir estilos adicionales aquí si son específicos de index.astro */
+  /* La regla para .hidden ya está en global.css, pero podrías ponerla aquí si prefieres */
+</style>
