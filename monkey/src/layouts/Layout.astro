@@ -1,0 +1,28 @@
+---
+// src/layouts/Layout.astro
+// Este layout proporciona la estructura HTML básica y importa los estilos globales.
+import '../styles/global.css'; // Importa el archivo CSS global para aplicar los estilos
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props; // Obtiene el título de la página desde las props
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Descripción de tu sitio web" /> {/* Agrega una descripción relevante */}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {/* Asegura la correcta visualización en dispositivos móviles */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> {/* Enlaza el icono de la página */}
+    <meta name="generator" content={Astro.generator} /> {/* Meta etiqueta generada por Astro */}
+    <title>{title}</title> {/* Establece el título de la página dinámicamente */}
+    {/* Aquí podrías añadir enlaces a fuentes externas si las usas, como la de Google Fonts */}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

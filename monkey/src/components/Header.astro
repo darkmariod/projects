@@ -1,0 +1,94 @@
+---
+// src/components/Header.astro
+// Este componente representa el encabezado y la navegación del sitio.
+// Los enlaces usan atributos data-section para interactuar con el script de navegación SPA.
+---
+
+<header class="header">
+  <div class="container">
+    {/* Área del logo */}
+    <div class="logo">
+      {/* Asegúrate de que el archivo de logo esté en la carpeta 'public' */}
+      {/* Reemplaza '/logo.png' con la ruta correcta si el nombre es diferente */}
+      <img src="/logo.png" alt="Logo de Rapid Automation" height="50"> {/* Logo de la empresa */}
+    </div>
+
+    {/* Navegación principal */}
+    <nav class="nav">
+      <ul>
+        {/* Enlaces de navegación: href="#" evita la navegación tradicional */}
+        {/* data-section="ID_DE_LA_SECCION" indica al script qué sección mostrar */}
+        <li><a href="#" data-section="inicio-section">INICIO</a></li>
+        <li><a href="#" data-section="servicios-section">SERVICIOS</a></li> {/* <-- data-section="servicios-section" */}
+        <li><a href="#" data-section="empresa-section">EMPRESA</a></li>     {/* <-- data-section="empresa-section" */}
+        <li><a href="#" data-section="contacto-section">CONTACTO</a></li>   {/* <-- data-section="contacto-section" */}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Estilos para el header */
+  .header {
+    background-color: var(--color-background-light); /* Color de fondo del header */
+    padding: 15px 0; /* Espaciado interno superior e inferior */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil en la parte inferior */
+  }
+
+  .header .container {
+    display: flex; /* Usa flexbox para alinear logo y navegación */
+    justify-content: space-between; /* Distribuye el espacio entre logo y navegación */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+  }
+
+  /* Estilos para el área del logo */
+  .header .logo img {
+      display: block; /* Asegura que la imagen se comporte como un bloque */
+      height: 50px; /* Altura del logo */
+      width: auto; /* Ancho automático para mantener la proporción */
+  }
+
+  /* Estilos para la lista de navegación */
+  .header nav ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    display: flex; /* Usa flexbox para alinear los elementos del menú */
+    gap: 30px; /* Espacio entre los elementos del menú */
+  }
+
+  .header nav ul li {
+    margin: 0; /* Elimina el margen por defecto de los elementos de la lista */
+  }
+
+  /* Estilos para los enlaces de navegación */
+  .header nav ul li a {
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    padding: 5px 0; /* Espaciado interno superior e inferior */
+    border-bottom: 2px solid transparent; /* Línea inferior transparente por defecto */
+    transition: border-bottom 0.3s ease; /* Transición suave para la línea inferior */
+    color: var(--color-typography-dark); /* Color del texto de los enlaces */
+  }
+
+  .header nav ul li a:hover {
+    border-bottom-color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  /* Estilos responsivos para el header */
+  @media (max-width: 768px) {
+    .header .container {
+      flex-direction: column; /* Apila el logo y la navegación en pantallas pequeñas */
+      align-items: center; /* Centra los elementos apilados */
+      gap: 15px; /* Espacio entre el logo y la navegación apilados */
+    }
+
+    .header nav ul {
+      flex-direction: column; /* Apila los elementos del menú en pantallas pequeñas */
+      align-items: center; /* Centra los elementos del menú apilados */
+      gap: 10px; /* Espacio entre los elementos del menú apilados */
+    }
+  }
+</style>

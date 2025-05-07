@@ -1,0 +1,160 @@
+---
+// src/components/Servicios.astro
+// Contenido de la sección de servicios, ahora con información de precios.
+---
+
+<div class="container">
+  <h2>Nuestros Servicios</h2>
+  <p>Descubre nuestros planes de automatización diseñados para impulsar tu negocio.</p>
+
+  <div class="pricing-plans">
+    {/* Plan Esencial */}
+    <div class="pricing-card">
+      <div class="plan-header">
+        <h3>Esencial</h3>
+        <p class="price">34.99 €</p>
+        <p class="original-price">79.99 €</p>
+      </div>
+      <div class="plan-features">
+        <ul>
+          <li>Repo de código con todas las Plantillas de automatizaciones con python</li>
+          <li>Acceso a proyectos completos de automatizaciones</li>
+          <li>Ejemplos prácticos</li>
+          <li>Documentación del código de Github</li>
+        </ul>
+      </div>
+      <button class="cta-button">Comprar</button>
+    </div>
+
+    {/* Plan Avanzado (Popular) */}
+    <div class="pricing-card popular">
+      <div class="popular-badge">Popular</div>
+      <div class="plan-header">
+        <h3>Avanzado</h3>
+        <p class="price">74.99 €</p>
+        <p class="original-price">149.99 €</p>
+      </div>
+      <div class="plan-features">
+        <ul>
+          <li>Todo lo incluido en el plan Esencial</li>
+          <li>Actualizaciones de por vida</li>
+          <li>Acceso a comunidad exclusiva</li>
+          <li>Soporte prioritario</li>
+        </ul>
+      </div>
+      <button class="cta-button">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos específicos para la sección de precios */
+  .pricing-plans {
+    display: flex; /* Usa flexbox para alinear las tarjetas de precio */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 30px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+    margin-top: 40px; /* Espacio encima de las tarjetas */
+  }
+
+  .pricing-card {
+    background-color: var(--color-background-light); /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd; /* Borde suave */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 30px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    width: 300px; /* Ancho fijo para las tarjetas (ajustable) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el ratón */
+    position: relative; /* Necesario para posicionar el badge 'Popular' */
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-10px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  }
+
+  .pricing-card .plan-header h3 {
+    color: var(--color-typography-dark); /* Color del título del plan */
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+  }
+
+  .pricing-card .price {
+    font-size: 2.5rem; /* Tamaño de fuente para el precio principal */
+    font-weight: bold;
+    color: var(--color-typography-dark);
+    margin-bottom: 5px;
+  }
+
+  .pricing-card .original-price {
+    font-size: 1.2rem; /* Tamaño de fuente para el precio original tachado */
+    color: #888;
+    text-decoration: line-through; /* Texto tachado */
+    margin-bottom: 20px;
+  }
+
+  .pricing-card .plan-features ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin-bottom: 30px; /* Espacio debajo de la lista de características */
+    text-align: left; /* Alinea las características a la izquierda */
+  }
+
+  .pricing-card .plan-features li {
+    margin-bottom: 15px; /* Espacio entre las características */
+    padding-left: 20px; /* Espacio a la izquierda para un posible icono */
+    position: relative;
+  }
+
+  .pricing-card .plan-features li::before {
+    content: '✓'; /* Agrega un checkmark (puedes usar un icono SVG si prefieres) */
+    color: green; /* Color del checkmark */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .pricing-card .cta-button {
+    width: 100%; /* El botón ocupa todo el ancho de la tarjeta */
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  /* Estilos específicos para la tarjeta popular */
+  .pricing-card.popular {
+    border-color: var(--color-primary); /* Borde de color primario */
+    box-shadow: 0 4px 12px rgba(var(--color-primary), 0.3); /* Sombra con color primario */
+  }
+
+  .pricing-card.popular:hover {
+     box-shadow: 0 8px 20px rgba(var(--color-primary), 0.4); /* Sombra más pronunciada con color primario */
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-primary); /* Fondo del badge con color primario */
+    color: var(--color-typography-dark); /* Color del texto del badge */
+    padding: 5px 15px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  /* Estilos responsivos para las tarjetas de precio */
+  @media (max-width: 768px) {
+    .pricing-plans {
+      flex-direction: column; /* Apila las tarjetas en pantallas pequeñas */
+      align-items: center; /* Centra las tarjetas apiladas */
+      gap: 20px; /* Reduce el espacio entre tarjetas apiladas */
+    }
+
+    .pricing-card {
+      width: 80%; /* Las tarjetas ocupan más ancho en móviles */
+      max-width: 350px; /* Ancho máximo para evitar que sean demasiado anchas */
+    }
+  }
+</style>
