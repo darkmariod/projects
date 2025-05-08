@@ -1,0 +1,72 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import PricingCard from "@components/pricing.astro";
+
+const pricing = [
+  {
+    name: "Esencial",
+    price: "$25 usd",
+    popular: false,
+    features: [
+      "Acceso de por vida",
+      "Automatizaciones listas para usar",
+      "Integración con herramientas populares",
+      "Soporte vía correo electrónico",
+    ],
+    button: {
+      text: "Empezar",
+      link: "/",
+    },
+  },
+  {
+    name: "Avanzado",
+    price: {
+      monthly: "$35 usd",
+      annual: "$16",
+      discount: "10%",
+      original: "$45",
+    },
+    popular: true,
+    features: [
+      "Todo lo incluido en el plan Esencial",
+      "Soporte prioritario y asesoría técnica directa",
+      "Actualizaciones anticipadas y mejoras continuas",
+    ],
+    button: {
+      text: "Empezar",
+      link: "#",
+    },
+  },
+  {
+    name: "Empresarial",
+    price: "Personalizado",
+    popular: false,
+    features: [
+      "Todas las funciones premium",
+      "Asesor de cuenta dedicado",
+      "Soporte telefónico",
+    ],
+    button: {
+      text: "Contactános",
+      link: "/contact",
+    },
+  },
+];
+---
+
+<Layout title="Precios">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Precios</Fragment>
+      <Fragment slot="desc">
+        Costo fijo, valor real. Sin cargos ocultos ni complicaciones.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
+      {pricing.map((item) => <PricingCard plan={item} />)}
+    </div>
+  </Container>
+</Layout>
