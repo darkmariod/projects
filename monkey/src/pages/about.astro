@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="Acerca de">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Monkey Computer</Fragment>
+      <Fragment slot="desc">Desarrollo de software.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Tecnología que impulsa tu negocio desde el inicio.
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Monkey Computer, una compañía ecuatoriana de software establecida en 2020, sostenemos que la tecnología debe estar al alcance de todos. 
+        Elaboramos soluciones digitales para empresas de pequeña y gran escala, que incluyen programas de gestión de inventarios, sitios web y comercios electrónicos.
+      <br>
+      <br>  
+        Nuestra tarea principal es asistirte en la transformación de tu empresa con instrumentos contemporáneos y automatizaciones útiles, proporcionándote acceso a proyectos concretos que simplifiquen tus procedimientos.
+      </p>
+    </div>
+   
+  </Container>
+</Layout>

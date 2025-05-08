@@ -1,0 +1,48 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+
+<Layout title="Automatiza tus procesos">
+  <Container>
+    <main class="py-12">
+      <!-- Sección Principal -->
+      <Sectionhead>
+        <Fragment slot="title" class="text-4xl font-bold text-gray-800 mb-4">Automatiza tus procesos</Fragment>
+        <Fragment slot="desc" class="text-xl text-gray-600 mt-2">¿Te suena familiar?</Fragment>
+      </Sectionhead>
+
+      <!-- Sección de Servicios -->
+      <section class="mt-16 max-w-5xl mx-auto" aria-labelledby="servicios">
+        <h2 id="servicios" class="text-3xl font-bold text-gray-800 mb-8 text-center">¿Cómo puedo ayudarte?</h2>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="p-6 bg-white rounded-lg shadow-md">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-blue-600 font-bold">[1]</span>
+              <h3 class="text-lg font-semibold">Automatización de Procesos</h3>
+            </div>
+            <p class="text-gray-600 text-sm">Optimiza tareas repetitivas y ahorra tiempo con soluciones automatizadas.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-md">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-blue-600 font-bold">[2]</span>
+              <h3 class="text-lg font-semibold">Integración de Herramientas</h3>
+            </div>
+            <p class="text-gray-600 text-sm">Conecta tus aplicaciones y herramientas para un flujo de trabajo más eficiente.</p>
+          </article>
+
+          <article class="p-6 bg-white rounded-lg shadow-md">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-blue-600 font-bold">[3]</span>
+              <h3 class="text-lg font-semibold">Desarrollo a Medida</h3>
+            </div>
+            <p class="text-gray-600 text-sm">Crea aplicaciones personalizadas que se adapten a las necesidades de tu negocio.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </Container>
+</Layout>
